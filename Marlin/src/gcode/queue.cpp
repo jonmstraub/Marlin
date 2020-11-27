@@ -566,12 +566,8 @@ void GCodeQueue::get_serial_commands() {
     while (length < BUFSIZE && !card_eof) {
       const int16_t n = card.get();
       card_eof = card.eof();
-<<<<<<< HEAD
-      if (n < 0 && !card_eof) { SERIAL_ERROR_MSG(MSG_SD_ERR_READ); continue; }
-=======
       if (n < 0 && !card_eof) { SERIAL_ERROR_MSG(STR_SD_ERR_READ); continue; }
 
->>>>>>> upstream/2.0.x
       const char sd_char = (char)n;
       const bool is_eol = ISEOL(sd_char);
       if (is_eol || card_eof) {
